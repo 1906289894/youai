@@ -30,8 +30,8 @@
         </dependency>
         <!--实体类-->
         <dependency>
-            <groupId>com.leyou</groupId>
-            <artifactId>ly-item-pojo</artifactId>
+            <groupId>com.youai</groupId>
+            <artifactId>ya-item-pojo</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!--Lombok-->
