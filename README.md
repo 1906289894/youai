@@ -33,3 +33,13 @@ mall
 ```shell
 java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
 ```
+
+`git`
+```shell
+1. 配置git用户名邮箱
+2. 生成ssh密钥串
+3. 配置ssh_puh到github
+4. https切换ssh需要修改git项目路径.git下边的config配置
+* 若出现域名问题需要配置 hosts DNS解析,若还是不行 请切换ip多次尝试 
+经过尝试可以使用的配置：[52.192.72.89 github.com]
+```
