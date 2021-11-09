@@ -27,3 +27,9 @@ mall
 <p>xxx<p>
 ```
 
+## 技术要点
+
+`sentinel 客户端启动`
+```shell
+java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
+```

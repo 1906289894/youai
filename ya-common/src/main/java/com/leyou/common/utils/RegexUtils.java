@@ -1,8 +1,7 @@
 package com.leyou.common.utils;
 
 import com.leyou.common.constants.RegexPatterns;
-import org.apache.commons.lang3.StringUtils;
-
+import org.springframework.util.StringUtils;
 
 public class RegexUtils {
     /**
@@ -49,7 +48,7 @@ public class RegexUtils {
     }
 
     private static boolean matches(String str, String regex){
-        if (StringUtils.isBlank(str)) {
+        if (StringUtils.isEmpty(str)) {
             return false;
         }
         return str.matches(regex);
