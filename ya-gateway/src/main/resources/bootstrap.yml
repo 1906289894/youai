@@ -1,0 +1,23 @@
+server:
+  port: 10010
+
+spring:
+  application:
+    name: ya-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: item-service # 商品微服务
+          uri: lb://item-service
+          predicates:
+            - Path=/item/**
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:9090 #sentinel dashboard地址
+        port: 9000
+logging:
+  level:
+    com.leyou: debug
