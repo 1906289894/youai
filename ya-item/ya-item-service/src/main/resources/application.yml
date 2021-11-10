@@ -14,8 +14,14 @@ spring:
         server-addr: 127.0.0.1:8848
     sentinel:
       transport:
-        dashboard: 127.0.0.1:9090 #sentinel dashboard地址
+        dashboard: 127.0.0.1:8080 #sentinel dashboard地址
       eager: true #取消懒加载
 logging:
   level:
-    com.leyou: debug
+    com.youai: debug
+# 暴露actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
