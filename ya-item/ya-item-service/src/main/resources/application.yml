@@ -11,7 +11,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 122.51.126.78:8848
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080 #sentinel dashboard地址

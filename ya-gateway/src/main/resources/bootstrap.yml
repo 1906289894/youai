@@ -1,23 +1,27 @@
 server:
-  port: 10010
-
+  port: 11111
 spring:
   application:
     name: ya-gateway
+  profiles:
+    active: dev
   cloud:
     gateway:
-      routes:
-        - id: item-service # 商品微服务
-          uri: lb://item-service
-          predicates:
-            - Path=/item/**
+      discovery:
+        locator:
+          enabled: true
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-    sentinel:
-      transport:
-        dashboard: 127.0.0.1:9090 #sentinel dashboard地址
-        port: 9000
+        server-addr: 122.51.126.78:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+
 logging:
   level:
     com.leyou: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

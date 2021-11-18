@@ -1,4 +1,4 @@
-package handler;
+package com.leyou.item.web;
 
 import com.alibaba.csp.sentinel.adapter.servlet.callback.UrlBlockHandler;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leyou.common.api.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +19,10 @@ import java.io.IOException;
 
 // UrlBlockHandler的实现类
 @Slf4j
+@Component
 public class MyUrlBlockHandler implements UrlBlockHandler {
     @Override
-    public void blocked(HttpServletRequest request, HttpServletResponse response, BlockException e) throws IOException {
+    public void blocked(HttpServletRequest request, HttpServletResponse response, BlockException e) throws IOException, IOException {
         log.info("UrlBlockHandler BlockException================"+e.getRule());
 
         CommonResult r = null;
