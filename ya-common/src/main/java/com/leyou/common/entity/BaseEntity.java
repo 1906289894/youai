@@ -4,6 +4,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
+/**
+ * 通用实体类
+ */
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class BaseEntity {
