@@ -1,0 +1,175 @@
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+
+/* @import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Architects+Daughter); */
+
+@import url("http://nexus.zylliondata.local/repository/res/asciidoctor.css");
+/* Default asciidoc style framework - important */
+
+/* CUSTOMISATIONS */
+
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+
+:root {
+    --maincolor: #FFFFFF;
+    --primarycolor: #000000;
+    --secondarycolor: #1a237e;
+    --tertiarycolor: #CCCCCC;
+    --highlightcolor: #ffd600;
+    --sidebarbackground: #772953;
+    --linkcolor: #0D47A1;
+    --linkcoloralternate: #B71C1C;
+    --stickynote: #fff8dc;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+/* Text styles */
+
+body {
+    font-family: "DengXian", "Source Han Sans", sans-serif;
+    background-color: #FCF3EA;
+    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .15em, transparent .15em);
+    background-size: 100% 1.2em;
+}
+
+h1 {
+    color: var(--primarycolor) !important;
+    font-family: "Cabin Sketch", "STXihei", sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+    color: var(--secondarycolor) !important;
+    font-family: "Cabin Sketch", "SimHei", sans-serif;
+}
+
+/*
+块标题
+*/
+
+.admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title {
+    font-family: "DengXian", "Source Han Sans", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*a{text-decoration: none;}*/
+
+/*文章内容字体*/
+
+p {
+    font-family: "Arial", "Microsoft YaHei", sans-serif ! important
+}
+
+pre, code {
+    font-family: "JetBrains Mono", "Source Code Pro", "Consolas", monospace ! important
+}
+
+#toc.toc2 a:link {
+    color: var(--linkcolor);
+    font-family: "Architects Daughter", sans-serif !important
+}
+
+blockquote {
+    color: var(--secondarycolor) !important
+}
+
+.quoteblock {
+    color: var(--black)
+}
+
+.quoteblock blockquote:before {
+    color: var(--black)
+}
+
+p > code {
+    color: var(--highlightcolor);
+    background-color: var(--black) !important
+}
+
+mark {
+    background-color: var(--highlightcolor)
+}
+
+/* Text highlighting color */
+
+pre {
+    background-color: var(--stickynote) !important;
+    color: var(--secondarycolor);
+    font-family: monospace;
+}
+
+/* Table styles */
+
+th {
+    background-color: var(--maincolor);
+    color: var(--black) !important;
+}
+
+td {
+    background-color: var(--maincolor);
+    color: var(--black) !important
+}
+
+#toc.toc2 {
+    max-width: 300px;
+    background-color: var(--sidebarbackground);
+    font-family: "Architects Daughter", sans-serif;
+}
+
+#toctitle {
+    color: var(--white);
+    font-family: "Cabin Sketch", sans-serif
+}
+
+.imageblock > .content {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+/* Responsiveness fixes */
+
+video {
+    max-width: 100%;
+}
+
+.conum[data-value] {
+    color: white !important;
+    background-color: #b90000;
+}
+
+@media all and (max-width: 600px) {
+    table {
+        width: 55vw !important;
+        font-size: 3vw;
+    }
+}
+
+.listingblock:hover .clipboard {
+    display: block;
+}
+
+.clipboard {
+    display: none;
+    border: 0;
+    font-size: .75em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 6px;
+    color: #999;
+    position: absolute;
+    top: .425rem;
+    right: .5rem;
+    background: transparent;
+}
+
+code + .clipboard {
+    top: 2rem !important;
+}
+
+.clipboard:hover, .clipboard:focus, .clipboard:active {
+    outline: 0;
+    background-color: #eee9e6;
+}

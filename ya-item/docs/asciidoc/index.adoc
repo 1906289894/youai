@@ -1,0 +1,25 @@
+:doctype: book
+:toc: left
+:icons: font
+:toclevels: 5
+:numbered:
+:hardbreaks:
+:sectlinks:
+:sectanchors:
+:experimental:
+:sectnums: true
+:lang: zh-Hans
+:revnumber: {docdatetime}
+:favicon: http://nexus.zylliondata.local/repository/res/logo.png
+:source-highlighter: rouge
+:rouge-theme: molokai
+//:highlightjs-theme: tomorrow-night
+:docinfo: shared
+:stylesheet: notebook.css
+:data-uri:
+:plantumlconfig: ./plantuml.iuml
+
+= DSPM 用户模块详细设计文档
+
+include::detailed.adoc[]
+include::user/api.adoc[]
