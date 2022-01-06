@@ -1,0 +1,114 @@
+<!-- Generate a nice TOC -->
+<!-- We do not need the tocify CSS because the asciidoc CSS already provides most of what we neeed -->
+<!-- <script src="https://darshandsoni.com/asciidoctor-skins/switcher.js" type="text/javascript"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+<style>
+    .tocify-header {
+        font-style: italic;
+    }
+
+    .tocify-subheader {
+        font-style: normal;
+        font-size: 90%;
+    }
+
+    .tocify ul {
+        margin: 0;
+    }
+
+    .tocify-focus {
+        color: #7a2518;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .tocify-item > a {
+        color: white;
+    }
+
+    .tocify-focus > a {
+        color: white;
+    }
+
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        // Add a new container for the tocify toc into the existing toc so we can re-use its
+        // styling
+        $("#toc").append("<div id='generated-toc'></div>");
+        $("#generated-toc").tocify({
+            extendPage: true,
+            context: "#content",
+            highlightOnScroll: true,
+            hideEffect: "slideUp",
+            // Use the IDs that asciidoc already provides so that TOC links and intra-document
+            // links are the same. Anything else might confuse users when they create bookmarks.
+            hashGenerator: function (text, element) {
+                return $(element).attr("id");
+            },
+            // Smooth scrolling doesn't work properly if we use the asciidoc IDs
+            smoothScroll: false,
+            // Set to 'none' to use the tocify classes
+            theme: "none",
+            // Handle book (may contain h1) and article (only h2 deeper)
+            selectors: $("#content").has("h1").size() > 0 ? "h1,h2,h3,h4,h5" : "h2,h3,h4,h5",
+            ignoreSelector: ".discrete"
+        });
+        // Switch between static asciidoc toc and dynamic tocify toc based on browser size
+        // This is set to match the media selectors in the asciidoc CSS
+        // Without this, we keep the dynamic toc even if it is moved from the side to preamble
+        // position which will cause odd scrolling behavior
+        let handleTocOnResize = function () {
+            if ($(document).width() < 768) {
+                $("#generated-toc").hide();
+                $(".sectlevel0").show();
+                $(".sectlevel1").show();
+            } else {
+                $("#generated-toc").show();
+                $(".sectlevel0").hide();
+                $(".sectlevel1").hide();
+            }
+        };
+        $(window).resize(handleTocOnResize);
+        handleTocOnResize();
+    });
+
+
+</script>
+<script>
+    $(function () {
+        var pre = document.getElementsByTagName('pre');
+        for (var i = 0; i < pre.length; i++) {
+            var b = document.createElement('button');
+            b.className = 'clipboard';
+            b.textContent = 'Copy';
+            if (pre[i].childNodes.length === 1 && pre[i].childNodes[0].nodeType === 3) {
+                var div = document.createElement('div');
+                div.textContent = pre[i].textContent;
+                pre[i].textContent = '';
+                pre[i].appendChild(div);
+            }
+            pre[i].appendChild(b);
+        }
+        new ClipboardJS('.clipboard', {
+            target: function (b) {
+                var p = b.parentNode;
+                return p.className.includes("highlight")
+                    ? p.getElementsByClassName("code")[0]
+                    : p.childNodes[0];
+            }
+        }).on('success', function (e) {
+            e.clearSelection();
+            e.trigger.textContent = 'Copied';
+            setTimeout(function () {
+                e.trigger.textContent = 'Copy';
+            }, 2000);
+        });
+    });
+
+
+</script>

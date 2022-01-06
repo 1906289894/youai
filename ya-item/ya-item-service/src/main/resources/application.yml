@@ -11,11 +11,25 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 122.51.126.78:8848
     sentinel:
       transport:
-        dashboard: 127.0.0.1:9090 #sentinel dashboard地址
+        dashboard: 127.0.0.1:8080 #sentinel dashboard地址
       eager: true #取消懒加载
+
+mybatis-plus:
+  type-aliases-package: com.leyou.item.entity  #别名包扫描
+  global-config:
+    db-config:
+      id-type: auto  #id自增长
+      update-strategy: NOT_EMPTY #更新时只更新非空字段
+      insert-strategy: NOT_EMPTY # 新增时，只新增非空字段
 logging:
   level:
-    com.leyou: debug
+    com.youai: debug
+# 暴露actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

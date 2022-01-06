@@ -12,13 +12,11 @@
     <artifactId>ya-common</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -50,11 +48,17 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <scope>compile</scope>
+
         </dependency>
 <!--        定时任务组件 自己搭建或用alibaba task-->
         <!--<dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 </project>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ly-item-api</artifactId>
+    <artifactId>ya-item-api</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

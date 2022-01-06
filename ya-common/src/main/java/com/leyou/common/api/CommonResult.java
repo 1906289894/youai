@@ -80,6 +80,16 @@ public class CommonResult<R> implements Serializable {
 
     /**
      *  失败返回
+     * @param code 错误码
+     * @param <R> r
+     * @return result
+     */
+    public static <R> CommonResult<R> failed(int code,String message) {
+        return new CommonResult<>(message,code,null);
+    }
+
+    /**
+     *  失败返回
      * @param <R> r
      * @return result
      */
