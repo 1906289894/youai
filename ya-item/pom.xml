@@ -11,10 +11,4 @@
 
     <artifactId>ya-item</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>ya-item-api</module>
-        <module>ya-item-pojo</module>
-        <module>ya-item-service</module>
-    </modules>
-
 </project>
