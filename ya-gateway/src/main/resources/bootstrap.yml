@@ -10,31 +10,30 @@ spring:
       discovery:
         locator:
           enabled: true
-      globalcors: #全局的跨域处理
-        add-to-simple-url-handler-mapping: true # 是否将当前cors配置加入到SimpleUrlHandlerMapping中，解决options请求被拦截问题
-          corsConfigurations:
-            '[/**]':
-              allowedOrigins: # 允许哪些网站的跨域请求
-                - "http://manage.leyou.com"
-                - "http://www.leyou.com"
-              allowedMethods: # 允许的跨域ajax的请求方式
-                - "GET"
-                - "POST"
-                - "DELETE"
-                - "PUT"
-                - "OPTIONS"
-              allowedHeaders: "*" # 允许在请求中携带的头信息
-              allowCredentials: true # 是否允许携带cookie
-              maxAge: 360000 # 这次跨域检测的有效期
-
+          lower-case-service-id: true
+          route-id-prefix: /
 
     nacos:
       discovery:
-        server-addr: 122.51.126.78:8848
+        server-addr: nacos-server:8848
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
-
+    sentinel:
+      transport:
+        dashboard: localhost:8888 # 控制台地址
+      filter:
+        enabled: false
+      datasource:
+        flow-datasource: #流控数据源
+          nacos: # 当前存储介质为nacos
+            server-addr: nacos-server:8848
+#            namespace:
+            data-id: ya-gateway-sentinel
+            group-id: DEFAULT_GROUP
+            data-type: json #配置的文件结构
+            rule_type: flow #流控规则
+      eager: true #饿加载
 logging:
   level:
     com.leyou: debug

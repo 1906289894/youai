@@ -103,8 +103,4 @@ public interface CommonConstants {
 	 */
 	String FILE_TYPE_IMG = "image";
 
-	String CONFIG_DATA_ID_DYNAMIC_ROUTES = "youai-gateway-router";
-	String CONFIG_GROUP = "DEFAULT_GROUP";
-	long CONFIG_TIMEOUT_MS = 5000;
-
 }

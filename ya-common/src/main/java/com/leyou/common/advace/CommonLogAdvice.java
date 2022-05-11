@@ -1,6 +1,6 @@
 package com.leyou.common.advace;
 
-import com.leyou.common.exception.LyException;
+import com.leyou.common.utils.exception.LyException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
