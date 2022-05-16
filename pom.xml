@@ -13,6 +13,9 @@
         <module>ya-common</module>
         <module>ya-user</module>
         <module>ya-data</module>
+        <module>ya-order</module>
+        <module>ya-account</module>
+        <module>ya-storage</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -26,11 +29,11 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <mysql-version>5.1.49</mysql-version>
+        <mysql-version>8.0.21</mysql-version>
         <lombok-version>1.18.22</lombok-version>
         <mybatis-plus-version>3.4.3</mybatis-plus-version>
+        <seata.version>2021.1</seata.version>
     </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -71,6 +74,13 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-version}</version>
+            </dependency>
+
+<!--            seata-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+                <version>${seata.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

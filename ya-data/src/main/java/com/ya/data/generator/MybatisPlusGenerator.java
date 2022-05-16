@@ -48,14 +48,16 @@ public class MybatisPlusGenerator {
         String modelPageName = scanner.nextLine();
         System.out.println("请输入你要生成的数据库");
         String dataName = scanner.nextLine();
-        String dataSourceUrl = dataSourceMap.get("url")+dataName; //数据库地址
+        String dataSourceUrl = dataSourceMap.get("url")+dataName+"?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai"; //数据库地址
         boolean flag = true;
         List<String> tables = new ArrayList<>();
         while (flag){
             System.out.println("请选择你要生成的表名, 输入 *** 表示结束");
             String tableName = scanner.nextLine();
-            tables.add(tableName);
             flag = !"***".equals(tableName);
+            if (flag){
+                tables.add(tableName);
+            }
         }
         String modelName = "/ya-"+modelPageName; //模块名称 请注意和包名做区分
         FastAutoGenerator

@@ -1,0 +1,37 @@
+server:
+  port: 8200
+spring:
+  application:
+    name: ya-storage
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+    nacos:
+      discovery:
+        server-addr: nacos-server:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        shared-configs: application.${spring.cloud.nacos.config.file-extension}
+seata:
+  registry:
+    nacos:
+      server-addr: nacos-server:8848
+      namespace: ec440782-5095-4468-a2d4-cb3771f00e93
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      application: seata-server
+  config:
+    nacos:
+      server-addr: ${seata.registry.nacos.server-addr}
+      username: ${seata.registry.nacos.username}
+      password: ${seata.registry.nacos.password}
+      group: ${seata.registry.nacos.group}
+      namespace: ${seata.registry.nacos.server-addr}
